@@ -45,7 +45,7 @@ public class PatientController {
         }
     }
 
-    @RequestMapping(path = "/{email}", method = RequestMethod.GET)
+    @RequestMapping(path = "/{email}/relative", method = RequestMethod.GET)
     public ResponseEntity<?> controllerGetRelativesByEmail(@PathVariable String email) {
         try {
             //obtener datos que se enviarán a través del API
@@ -57,7 +57,7 @@ public class PatientController {
     }
 
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(path = "/{email}/patient",method = RequestMethod.POST)
     public ResponseEntity<?> controllerNewPatient(@RequestBody String p) {
         try {
             //registrar dato
@@ -74,7 +74,7 @@ public class PatientController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(path = "/{email}/email",method = RequestMethod.POST)
     public ResponseEntity<?> controllerChangeEmail(@RequestBody String newEmail, @RequestBody String email) {
             try {
                 patientService.changeEmail(newEmail, email);
@@ -87,7 +87,7 @@ public class PatientController {
         }
 
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(path = "/{email}/name",method = RequestMethod.POST)
     public ResponseEntity<?> controllerChangeName(@RequestBody String newName, @RequestBody String email) {
         try {
             patientService.changeName(newName, email);
@@ -99,7 +99,7 @@ public class PatientController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(path = "/{email}/weight", = RequestMethod.POST)
     public ResponseEntity<?> controllerChangeWeight(@RequestBody String newWeight, @RequestBody String email) {
         try {
             patientService.changeWeight(Integer.parseInt(newWeight), email);
@@ -110,7 +110,7 @@ public class PatientController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(path = "/{email}/height",method = RequestMethod.POST)
     public ResponseEntity<?> controllerChangeHeight(@RequestBody String newHeight, @RequestBody String email) {
         try {
             patientService.changeHeight(Integer.parseInt(newHeight), email);
