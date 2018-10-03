@@ -44,7 +44,7 @@ public class AmbulanceServiceImpl implements AmbulanceService {
     public List<Ambulance> findAviableAmbulances() {
         List<Ambulance> aviableAmb = new ArrayList<>();
         for(Ambulance am: ambulances){
-            if(am.isOnService()){
+            if(!am.isOnService()){
                 aviableAmb.add(am);
             }
         }
