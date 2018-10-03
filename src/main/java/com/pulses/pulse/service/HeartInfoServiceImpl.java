@@ -1,37 +1,37 @@
 package com.pulses.pulse.service;
 
 
+import com.pulses.pulse.model.Diagnostic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+
+import java.util.*;
 
 @Service
 public class HeartInfoServiceImpl implements HeartInfoService {
     private HashMap<String, Integer> currentData = new HashMap<String, Integer>();
-    private HashMap <Date, String> diagnostics= new HashMap<>();
+    private List<Diagnostic> diagnostics= new ArrayList<>();
     @Autowired
     public HeartInfoServiceImpl(){}
 
     @Override
-    public HashMap<Date, String> getDiagnostics() {
+    public List<Diagnostic> getDiagnostics() {
         return diagnostics;
     }
 
     @Override
-    public String getDiagnosticByDate(Date date) {
-        for (Map.Entry<Date, String> entry : diagnostics.entrySet()) {
-            if(entry.getKey().equals(date)){
-                return entry.getValue();
+    public String getDiagnosticById(String id) {
+        for (Diagnostic dg : diagnostics) {
+            if(dg.getId().equals(id)){
+                return dg.getDiagnostic();
             }
         }
         return null;
     }
 
     @Override
-    public void addDiagnostic(Date date, String diagnostic) {
-        diagnostics.put(date,diagnostic);
+    public void addDiagnostic(String id, Date date, String diagnostic) {
+        diagnostics.add(new Diagnostic(id,date,diagnostic));
     }
 
     @Override
