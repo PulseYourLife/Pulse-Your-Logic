@@ -57,7 +57,7 @@ public class PatientController {
     }
 
 
-    @RequestMapping(path = "/{email}/patient",method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> controllerNewPatient(@RequestBody String p) {
         try {
             //registrar dato
@@ -74,8 +74,8 @@ public class PatientController {
         }
     }
 
-    @RequestMapping(path = "/{email}/email",method = RequestMethod.POST)
-    public ResponseEntity<?> controllerChangeEmail(@RequestBody String newEmail, @RequestBody String email) {
+    @RequestMapping(path = "/{email}",method = RequestMethod.POST)
+    public ResponseEntity<?> controllerChangeEmail(@RequestBody String newEmail, @PathVariable String email) {
             try {
                 patientService.changeEmail(newEmail, email);
             }
@@ -88,7 +88,7 @@ public class PatientController {
 
 
     @RequestMapping(path = "/{email}/name",method = RequestMethod.POST)
-    public ResponseEntity<?> controllerChangeName(@RequestBody String newName, @RequestBody String email) {
+    public ResponseEntity<?> controllerChangeName(@RequestBody String newName, @PathVariable String email) {
         try {
             patientService.changeName(newName, email);
         }
@@ -100,7 +100,7 @@ public class PatientController {
     }
 
     @RequestMapping(path = "/{email}/weight", = RequestMethod.POST)
-    public ResponseEntity<?> controllerChangeWeight(@RequestBody String newWeight, @RequestBody String email) {
+    public ResponseEntity<?> controllerChangeWeight(@Requestbody String newWeight, @PathVariable String email) {
         try {
             patientService.changeWeight(Integer.parseInt(newWeight), email);
         } catch (PulseServicesException ex) {
@@ -111,7 +111,7 @@ public class PatientController {
     }
 
     @RequestMapping(path = "/{email}/height",method = RequestMethod.POST)
-    public ResponseEntity<?> controllerChangeHeight(@RequestBody String newHeight, @RequestBody String email) {
+    public ResponseEntity<?> controllerChangeHeight(@RequestBody String newHeight, @PathVariable String email) {
         try {
             patientService.changeHeight(Integer.parseInt(newHeight), email);
         } catch (PulseServicesException ex) {
