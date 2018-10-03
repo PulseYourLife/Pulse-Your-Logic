@@ -10,6 +10,7 @@ import java.util.List;
 @Service
 public class PatientServiceImpl implements PatientService {
     private List<Patient> patients = new ArrayList<>();
+
     @Autowired
     public PatientServiceImpl(){}
     @Override
@@ -36,4 +37,25 @@ public class PatientServiceImpl implements PatientService {
             return null;
         }
     }
+
+    public void changeEmail (String newEmail, String email){
+        Patient p = getPatientByEmail(email);
+        p.setEmail(newEmail);
+    }
+
+    public void changeName (String newName, String email){
+        Patient p = getPatientByEmail(email);
+        p.setName(newName);
+    }
+
+    public void changeWeight(float newWeight, String email){
+        Patient p = getPatientByEmail(email);
+        p.setWeight(newWeight);
+    }
+
+    public void changeHeight(int newHeight, String email){
+        Patient p = getPatientByEmail(email);
+        p.setWeight(newHeight);
+    }
+
 }

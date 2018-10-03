@@ -5,7 +5,12 @@ import com.pulses.pulse.model.Relative;
 import java.util.List;
 
 public interface PatientService {
-    Patient getPatientByEmail(String email);
-    List<Patient> getPatients();
-    List<Relative> getRelativesByEmail(String email);
+    public Patient getPatientByEmail(String email);
+    public List<Patient> getPatients();
+    public List<Relative> getRelativesByEmail(String email);
+    public void changeEmail (String newEmail, String email);
+    public void changeName (String newName, String email);
+    public void changeWeight(float newWeight, String email);
+    public void changeHeight(int newHeight, String email);
+    public void newPatient(Patient p);
 }
