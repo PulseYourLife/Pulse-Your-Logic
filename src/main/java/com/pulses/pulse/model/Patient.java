@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Patient {
+
     private String name;
     private int age;
     private float height;
@@ -12,9 +13,11 @@ public class Patient {
     private String gender;
     private List<Relative> relatives;
     private HeartInfo heartStat;
+
     public Patient(){
 
     }
+
     public Patient(String name, int age, float height, float weight, String email, String gender){
         this.name = name;
         this.age=age;

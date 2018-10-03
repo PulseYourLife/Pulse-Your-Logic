@@ -1,6 +1,6 @@
 package com.pulses.pulse.service;
 
-public class PulseServicesException {
+public class PulseServicesException extends Exception{
 
     public PulseServicesException(String message, Throwable cause) {
         super(message, cause);
