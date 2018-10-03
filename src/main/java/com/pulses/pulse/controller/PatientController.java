@@ -99,8 +99,8 @@ public class PatientController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @RequestMapping(path = "/{email}/weight", = RequestMethod.POST)
-    public ResponseEntity<?> controllerChangeWeight(@Requestbody String newWeight, @PathVariable String email) {
+    @RequestMapping(path = "/{email}/weight", method = RequestMethod.POST)
+    public ResponseEntity<?> controllerChangeWeight(@RequestBody String newWeight, @PathVariable String email) {
         try {
             patientService.changeWeight(Integer.parseInt(newWeight), email);
         } catch (PulseServicesException ex) {
