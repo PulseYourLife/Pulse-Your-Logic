@@ -12,6 +12,7 @@ public class PatientServiceImpl implements PatientService {
     private List<Patient> patients = new ArrayList<>();
     @Autowired
     public PatientServiceImpl(){}
+
     @Override
     public Patient getPatientByEmail(String email) {
         for(Patient pat: patients){

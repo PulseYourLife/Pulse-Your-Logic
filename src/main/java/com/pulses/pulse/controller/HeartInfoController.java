@@ -16,6 +16,7 @@ import java.util.List;
 @RequestMapping("/heartInfo")
 @CrossOrigin(origins = "http://localhost:8080")
 public class HeartInfoController {
+
     @Autowired
     private HeartInfoService heartInfoService;
 
