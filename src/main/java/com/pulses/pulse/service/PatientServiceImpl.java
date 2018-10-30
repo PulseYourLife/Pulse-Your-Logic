@@ -15,7 +15,7 @@ public class PatientServiceImpl implements PatientService {
     @Autowired
     public PatientServiceImpl(){}
 
-=
+
     @Override
     public void newPatient(Patient p) {
         patients.add(p);
