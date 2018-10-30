@@ -1,6 +1,7 @@
 package com.pulses.pulse.service;
 
 import com.pulses.pulse.model.Diagnostic;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

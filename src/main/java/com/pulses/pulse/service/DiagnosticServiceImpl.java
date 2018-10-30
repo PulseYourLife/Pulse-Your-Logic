@@ -2,12 +2,13 @@ package com.pulses.pulse.service;
 
 import com.pulses.pulse.model.Diagnostic;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+@Service
 public class DiagnosticServiceImpl implements  DiagnosticService{
     private List<Diagnostic> diagnostics = new ArrayList<>();
     @Autowired

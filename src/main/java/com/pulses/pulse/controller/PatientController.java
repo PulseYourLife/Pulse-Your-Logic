@@ -2,6 +2,7 @@ package com.pulses.pulse.controller;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import com.pulses.pulse.model.Patient;
 import com.pulses.pulse.model.Relative;
 import com.pulses.pulse.service.PatientService;
@@ -23,7 +24,8 @@ public class PatientController {
     @Autowired
     private PatientService patientService;
 
-    @RequestMapping(method = RequestMethod.GET)
+
+    @RequestMapping(path="/getPatients", method = RequestMethod.GET)
     public ResponseEntity<?> controllerGetPatients() {
         try {
             //obtener datos que se enviarán a través del API
@@ -33,6 +35,8 @@ public class PatientController {
             return new ResponseEntity<>("There are no patients: " + ex,HttpStatus.NOT_FOUND);
         }
     }
+
+
 
     @RequestMapping(path = "/{email}", method = RequestMethod.GET)
     public ResponseEntity<?> controllerGetPatientByEmail(@PathVariable String email) {
@@ -57,21 +61,14 @@ public class PatientController {
     }
 
 
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> controllerNewPatient(@RequestBody String p) {
-        try {
-            //registrar dato
-            ObjectMapper mapper = new ObjectMapper();
-            Patient newPatient = mapper.readValue(p, Patient.class);
-            patientService.newPatient(newPatient);
-            return new ResponseEntity<>(HttpStatus.CREATED);
-        } catch (IOException ex) {
-            Logger.getLogger(PulseServicesException.class.getName()).log(Level.SEVERE, null, ex);
-            return new ResponseEntity<>("Error in input",HttpStatus.FORBIDDEN);
-        } catch (PulseServicesException ex) {
-            Logger.getLogger(PulseServicesException.class.getName()).log(Level.SEVERE, null, ex);
-            return new ResponseEntity<>("Something went wrong in creation of the Patient",HttpStatus.FORBIDDEN);
-        }
+    @RequestMapping(path = "/add/{data}",method = RequestMethod.POST)
+    public ResponseEntity<?> controllerNewPatient(@RequestBody String data) throws PulseServicesException, IOException {
+        //registrar dato
+        Gson gson = new Gson();
+        Patient newPatient = gson.fromJson(data, Patient.class);
+        patientService.newPatient(newPatient);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+
     }
 
     @RequestMapping(path = "/{email}",method = RequestMethod.POST)
@@ -98,7 +95,6 @@ public class PatientController {
         }
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
-
     @RequestMapping(path = "/{email}/weight", method = RequestMethod.POST)
     public ResponseEntity<?> controllerChangeWeight(@RequestBody String newWeight, @PathVariable String email) {
         try {
