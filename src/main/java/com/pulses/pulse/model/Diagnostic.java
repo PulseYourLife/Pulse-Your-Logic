@@ -3,9 +3,11 @@ package com.pulses.pulse.model;
 import java.util.Date;
 
 public class Diagnostic {
+
     private String id;
     private Date date;
     private String diagnostic;
+
     public Diagnostic(String id, Date date, String diagnostic){
         this.id = id;
         this.date=date;

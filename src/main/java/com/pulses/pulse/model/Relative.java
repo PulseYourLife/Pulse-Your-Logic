@@ -1,9 +1,10 @@
 package com.pulses.pulse.model;
 
 public class Relative {
-    public String name;
-    public int phoneNumber;
-    public String email;
+
+    private String name;
+    private int phoneNumber;
+    private String email;
 
     public Relative(String name, int phoneNumber, String email) {
         this.name = name;

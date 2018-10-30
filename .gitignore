@@ -1,3 +1,4 @@
+
 # Created by https://www.gitignore.io/api/java,intellij+all,gradle,linux,macos,windows
 
 ### Intellij+all ###
@@ -128,6 +129,7 @@ hs_err_pid*
 .LSOverride
 
 # Icon must end with two \r
+
 Icon
 
 # Thumbnails
