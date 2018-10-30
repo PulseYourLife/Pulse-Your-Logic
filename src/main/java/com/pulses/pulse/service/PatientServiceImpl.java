@@ -15,6 +15,7 @@ public class PatientServiceImpl implements PatientService {
     @Autowired
     public PatientServiceImpl(){}
 
+=
     @Override
     public void newPatient(Patient p) {
         patients.add(p);
@@ -25,6 +26,7 @@ public class PatientServiceImpl implements PatientService {
         Patient pat = getPatientByEmail(email);
         pat.getRelatives().add(r);
     }
+
 
     @Override
     public Patient getPatientByEmail(String email) {

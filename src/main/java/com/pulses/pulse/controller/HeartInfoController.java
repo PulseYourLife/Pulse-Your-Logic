@@ -1,5 +1,4 @@
 package com.pulses.pulse.controller;
-
 import com.pulses.pulse.model.Ambulance;
 import com.pulses.pulse.model.Diagnostic;
 import com.pulses.pulse.service.HeartInfoService;
@@ -16,6 +15,7 @@ import java.util.List;
 @RequestMapping("/heartInfo")
 @CrossOrigin(origins = "http://localhost:8080")
 public class HeartInfoController {
+
     @Autowired
     private HeartInfoService heartInfoService;
 
@@ -41,3 +41,4 @@ public class HeartInfoController {
     //void addDiagnostic(Date date, String diagnostic);
     //int findDataByDate(String date);
 }
+
