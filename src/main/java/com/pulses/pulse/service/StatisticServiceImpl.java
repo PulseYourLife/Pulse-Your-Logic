@@ -2,13 +2,16 @@ package com.pulses.pulse.service;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class StatisticServiceImpl implements StatisticService {
 
+    Double[] datosQuemados = {1.38, 2.56, 4.31,6.71,2.61,2.81,2.71,9.76,1.45,12.65,10.00};
     private ArrayList<Double> week = new ArrayList<>();
-    private ArrayList<Double> year = new ArrayList<>();
+    private ArrayList<Double> year = new ArrayList<Double>(Arrays.asList(datosQuemados));
+
     private double day;
 
     @Override
@@ -19,7 +22,6 @@ public class StatisticServiceImpl implements StatisticService {
 
     @Override
     public ArrayList<Double> dataYear(){
-        for (double i=0; i<10; i++) year.add(i);
         return year;
     }
 
