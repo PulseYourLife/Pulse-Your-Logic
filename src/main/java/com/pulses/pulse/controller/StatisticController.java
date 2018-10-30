@@ -5,9 +5,10 @@ import com.pulses.pulse.service.HeartInfoService;
 import com.pulses.pulse.service.StatisticService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
-@RequestMapping("/heartInfo")
+@RequestMapping("/values")
 @CrossOrigin(origins = "http://localhost:8080")
 public class StatisticController {
 
@@ -15,22 +16,24 @@ public class StatisticController {
     private StatisticService st;
 
     @RequestMapping( value = "/getValuesWeek", method = RequestMethod.GET )
-    public List<Diagnostic> getValuesWeek(){
+    public List<Double> getValuesWeek(){
+
         return st.dataWeek();
     }
 
     @RequestMapping( value = "/getValuesYear", method = RequestMethod.GET )
-    public List<Diagnostic> getValuesYear(){
+    public List<Double> getValuesYear(){
+
         return st.dataYear();
     }
 
     @RequestMapping( value = "/getValueDay", method = RequestMethod.GET )
-    public List<Diagnostic> getValueDay(){
+    public Double getValueDay(){
         return st.dataDay();
     }
 
     @RequestMapping(value="/addValue/value/time")
-    public void addValue(@RequestParam("value") Integer value, @RequestParam("time") String time) throws ParseException {
+    public void addValue(@RequestParam("value") Double value, @RequestParam("time") String time){
 
         if(time == "year"){
             st.addValueYear(value);
@@ -41,7 +44,5 @@ public class StatisticController {
         if(time == "day"){
             st.addValueDay(value);
         }
-
-        heartInfoService.addDiagnostic(id, date,diagnostic);
     }
 }

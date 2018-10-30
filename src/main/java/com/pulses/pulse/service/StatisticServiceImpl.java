@@ -7,38 +7,42 @@ import java.util.List;
 @Service
 public class StatisticServiceImpl implements StatisticService {
 
-    private List<Integer> week = new ArrayList<>();
-    private List<int> year = new ArrayList<>();
-    private List<int> day = new ArrayList<>();
+    private ArrayList<Double> week = new ArrayList<>();
+    private ArrayList<Double> year = new ArrayList<>();
+    private double day;
 
     @Override
-    List<Integer> dataWeek(){
+    public ArrayList<Double> dataWeek(){
+
         return week;
     }
 
     @Override
-    List<Integer> dataYear(){
+    public ArrayList<Double> dataYear(){
+        for (double i=0; i<10; i++) year.add(i);
         return year;
     }
 
     @Override
-    List<Integer> dataDay() {
+    public double dataDay() {
+        this.day = 3.5;
         return day;
     }
 
     @Override
-    void addValueWeek(Integer value){
+    public void addValueWeek(double value)    {
+
         week.add(value);
     }
 
     @Override
-    void addValueYear(Integer value){
+    public void addValueYear(double value){
         year.add(value);
     }
 
     @Override
-    void addValueDay(Integer value){
-        day.add(value);
+    public void addValueDay(double value){
+        this.day = value;
     }
 }
 

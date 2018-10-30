@@ -1,5 +1,4 @@
 package com.pulses.pulse.controller;
-
 import com.pulses.pulse.model.Ambulance;
 import com.pulses.pulse.model.Diagnostic;
 import com.pulses.pulse.service.HeartInfoService;
@@ -42,3 +41,4 @@ public class HeartInfoController {
     //void addDiagnostic(Date date, String diagnostic);
     //int findDataByDate(String date);
 }
+

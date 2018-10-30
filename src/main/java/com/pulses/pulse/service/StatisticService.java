@@ -1,13 +1,15 @@
 package com.pulses.pulse.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface StatisticService {
-    List<Integer> dataWeek();
-    List<Integer> dataYear();
-    List<Integer> dataDay();
-    void addValueWeek(Integer value);
-    void addValueYear(Integer value);
-    void addValueDay(Integer value);
+    ArrayList<Double> dataWeek();
+    ArrayList<Double> dataYear();
+    double dataDay();
+    void addValueWeek(double value);
+    void addValueYear(double value);
+    void addValueDay(double value);
 }
+
 
