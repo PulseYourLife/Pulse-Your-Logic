@@ -64,6 +64,7 @@ public class PatientController {
     @RequestMapping(path = "/add/{data}",method = RequestMethod.POST)
     public ResponseEntity<?> controllerNewPatient(@RequestBody String data) throws PulseServicesException, IOException {
         //registrar dato
+        System.out.println(data);
         Gson gson = new Gson();
         Patient newPatient = gson.fromJson(data, Patient.class);
         patientService.newPatient(newPatient);

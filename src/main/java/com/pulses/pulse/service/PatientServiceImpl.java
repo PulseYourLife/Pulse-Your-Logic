@@ -1,10 +1,12 @@
 package com.pulses.pulse.service;
 
+import com.pulses.pulse.model.Ambulance;
 import com.pulses.pulse.model.Patient;
 import com.pulses.pulse.model.Relative;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +16,11 @@ public class PatientServiceImpl implements PatientService {
 
     @Autowired
     public PatientServiceImpl(){}
-
+    @PostConstruct
+    private void populateSampleData()
+    {
+        patients.add( new Patient("david", "david", "david", 20, "male", 1.9, 1.9));
+    }
     @Override
     public void newPatient(Patient p) {
         patients.add(p);

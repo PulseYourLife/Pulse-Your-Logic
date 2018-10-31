@@ -11,15 +11,17 @@ public class Patient {
     private float weight;
     private String email;
     private String gender;
+    private String password;
     private List<Relative> relatives;
     private HeartInfo heartStat;
 
-    public Patient(){
+    public Patient(String david, String email, String password, int age, String male, double v, double v1){
 
     }
 
-    public Patient(String name, int age, float height, float weight, String email, String gender){
+    public Patient(String name,String email, String password, int age, String gender,float height, float weight){
         this.name = name;
+        this.password = password;
         this.age=age;
         this.height = height;
         this.weight = weight;
