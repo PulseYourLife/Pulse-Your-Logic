@@ -194,3 +194,4 @@ gradle-app.setting
 
 
 # End of https://www.gitignore.io/api/java,intellij+all,gradle,linux,macos,windows
+/.nb-gradle/

@@ -32,4 +32,5 @@ dependencies {
 	implementation('org.springframework.boot:spring-boot-starter-web')
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	implementation 'com.google.firebase:firebase-admin:6.5.0'
 }
